@@ -43,7 +43,7 @@ class Component extends Model implements HasPresenter
         'link'        => '',
         'enabled'     => true,
         'meta'        => null,
-        'team'        => '',
+        'team'        => null,
     ];
 
     /**
