@@ -43,6 +43,7 @@ class Component extends Model implements HasPresenter
         'link'        => '',
         'enabled'     => true,
         'meta'        => null,
+        'team'        => '',
     ];
 
     /**
@@ -60,6 +61,7 @@ class Component extends Model implements HasPresenter
         'enabled'     => 'bool',
         'meta'        => 'json',
         'deleted_at'  => 'date',
+        'team'        => 'string',
     ];
 
     /**
@@ -76,6 +78,7 @@ class Component extends Model implements HasPresenter
         'group_id',
         'enabled',
         'meta',
+        'team',
     ];
 
     /**
@@ -90,6 +93,7 @@ class Component extends Model implements HasPresenter
         'group_id' => 'nullable|int',
         'link'     => 'nullable|url',
         'enabled'  => 'required|bool',
+        'team'     => 'nullable|string',
     ];
 
     /**
