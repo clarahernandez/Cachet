@@ -93,6 +93,13 @@ final class UpdateComponentCommand
     public $silent;
 
     /**
+     * The component team.
+     *
+     * @var string
+     */
+    public $team;
+
+    /**
      * The validation rules.
      *
      * @var string[]
@@ -107,26 +114,26 @@ final class UpdateComponentCommand
         'enabled'     => 'nullable|bool',
         'meta'        => 'nullable|array',
         'silent'      => 'nullable|bool',
+        'team'        => 'nullable|string',
     ];
 
     /**
      * Create a new update component command instance.
      *
      * @param \CachetHQ\Cachet\Models\Component $component
-     * @param string|null                       $name
-     * @param string|null                       $description
-     * @param int|null                          $status
-     * @param string|null                       $link
-     * @param int|null                          $order
-     * @param int|null                          $group_id
-     * @param bool|null                         $enabled
-     * @param array|null                        $meta
-     * @param string|null                       $tags
-     * @param bool                              $silent
-     *
-     * @return void
+     * @param string|null $name
+     * @param string|null $description
+     * @param int|null $status
+     * @param string|null $link
+     * @param int|null $order
+     * @param int|null $group_id
+     * @param bool|null $enabled
+     * @param array|null $meta
+     * @param string|null $tags
+     * @param null $silent
+     * @param null $team
      */
-    public function __construct(Component $component, $name = null, $description = null, $status = null, $link = null, $order = null, $group_id = null, $enabled = null, $meta = null, $tags = null, $silent = null)
+    public function __construct(Component $component, $name = null, $description = null, $status = null, $link = null, $order = null, $group_id = null, $enabled = null, $meta = null, $tags = null, $silent = null, $team = null)
     {
         $this->component = $component;
         $this->name = $name;
@@ -140,5 +147,6 @@ final class UpdateComponentCommand
         $this->tags = $tags;
         $this->silent = $silent;
         $this->tags = $tags;
+        $this->team = $team;
     }
 }

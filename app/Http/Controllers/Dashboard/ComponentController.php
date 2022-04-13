@@ -122,7 +122,8 @@ class ComponentController extends Controller
                 $componentData['enabled'],
                 null, // Meta data cannot be supplied through the dashboard yet.
                 $componentData['tags'], // Meta data cannot be supplied through the dashboard yet.
-                true // Silent since we're not really making changes to the component (this should be optional)
+                true, // Silent since we're not really making changes to the component (this should be optional)
+                $componentData['team']
             ));
         } catch (ValidationException $e) {
             return cachet_redirect('dashboard.components.edit', [$component->id])
@@ -166,7 +167,8 @@ class ComponentController extends Controller
                 $componentData['group_id'],
                 $componentData['enabled'],
                 null, // Meta data cannot be supplied through the dashboard yet.
-                $componentData['tags']
+                $componentData['tags'],
+                $componentData['team']
             ));
         } catch (ValidationException $e) {
             return cachet_redirect('dashboard.components.create')

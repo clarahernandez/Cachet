@@ -92,6 +92,7 @@ return [
         'tags'        => 'Tags',
         'tags-help'   => 'Comma separated.',
         'enabled'     => 'Component enabled?',
+        'team'        => 'Team',
 
         'groups' => [
             'name'                     => 'Name',

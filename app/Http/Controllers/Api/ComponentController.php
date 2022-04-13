@@ -82,7 +82,8 @@ class ComponentController extends AbstractApiController
                 Binput::get('group_id'),
                 (bool) Binput::get('enabled', true),
                 Binput::get('meta'),
-                Binput::get('tags')
+                Binput::get('tags'),
+                Binput::get('team')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
@@ -112,7 +113,8 @@ class ComponentController extends AbstractApiController
                 Binput::get('enabled', $component->enabled),
                 Binput::get('meta'),
                 Binput::get('tags'),
-                (bool) Binput::get('silent', false)
+                (bool) Binput::get('silent', false),
+                Binput::get('team')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();

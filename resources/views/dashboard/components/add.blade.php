@@ -22,6 +22,10 @@
                         <input type="text" class="form-control" name="component[name]" id="component-name" required placeholder="{{ trans('forms.components.name') }}">
                     </div>
                     <div class="form-group">
+                        <label>{{ trans('forms.components.team') }}</label>
+                        <input type="text" name="component[team]" class="form-control" placeholder="{{ trans('forms.components.team') }}">
+                    </div>
+                    <div class="form-group">
                         <label for="component-status">{{ trans('forms.components.status') }}</label>
                         <select name="component[status]" class="form-control">
                             @foreach(trans('cachet.components.status') as $statusID => $status)

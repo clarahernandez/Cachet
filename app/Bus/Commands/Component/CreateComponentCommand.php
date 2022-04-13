@@ -82,6 +82,13 @@ final class CreateComponentCommand
     public $tags;
 
     /**
+     * Team string.
+     *
+     * @var string
+     */
+    public $team;
+
+    /**
      * The validation rules.
      *
      * @var string[]
@@ -96,6 +103,7 @@ final class CreateComponentCommand
         'enabled'     => 'nullable|bool',
         'meta'        => 'nullable|array',
         'tags'        => 'nullable|string',
+        'team'        => 'nullable|string'
     ];
 
     /**
@@ -110,10 +118,11 @@ final class CreateComponentCommand
      * @param bool        $enabled
      * @param array|null  $meta
      * @param string|null $tags
+     * @param string|null $team
      *
      * @return void
      */
-    public function __construct($name, $description, $status, $link, $order, $group_id, $enabled, $meta, $tags = null)
+    public function __construct($name, $description, $status, $link, $order, $group_id, $enabled, $meta, $tags = null, $team = null)
     {
         $this->name = $name;
         $this->description = $description;
@@ -124,5 +133,6 @@ final class CreateComponentCommand
         $this->enabled = $enabled;
         $this->meta = $meta;
         $this->tags = $tags;
+        $this->team = $team;
     }
 }
