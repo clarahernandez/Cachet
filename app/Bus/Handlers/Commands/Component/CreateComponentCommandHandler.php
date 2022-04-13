@@ -85,6 +85,7 @@ class CreateComponentCommandHandler
             'order'       => $command->order,
             'group_id'    => $command->group_id,
             'meta'        => $command->meta,
+            'team'        => $command->team,
         ];
 
         return array_filter($params, function ($val) {
