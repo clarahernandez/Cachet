@@ -11,65 +11,62 @@ Cachet is a beautiful and powerful open source status page system.
 
 ## Overview
 
-- List your service components
-- Report incidents
-- Customise the look of your status page
-- Markdown support for incident messages
-- A powerful JSON API
-- Metrics
-- Multi-lingual
-- Subscriber notifications via email
-- Two factor authentication
-
-## Community
-
-You can now [join our Slack community!](http://cachethq-slack.herokuapp.com)
-
-## Requirements
-
-- PHP 7.1.3 – 7.3
-- HTTP server with PHP support (e.g.: Apache, Nginx, Caddy)
-- [Composer](https://getcomposer.org)
-- A supported database: MySQL, PostgreSQL or SQLite
+This project has a feature that adds the attribute 'team' to the Component model.
 
 ## Installation, Upgrades and Documentation
 
+To install the project with Docker
+
+1.  Clone the official repo of CachetHQ/Docker:
+
+  ```shell
+  git clone https://github.com/CachetHQ/Docker.git cachet-docker
+  cd cachet-docker
+  git tag -l
+  git checkout $LATEST_TAG
+  ```
+
+2. Clone this repo of CachetHQ/Cachet here and do composer install:
+
+  ```shell
+  git clone https://github.com/clarahernandez/Cachet.git
+  ```
+
+3. Setup the Cachet project:
+
+Note: This requires [Composer](https://getcomposer.org/) be installed on your Docker host.
+
+ ```shell
+cd Cachet
+composer install
+cp ../conf/.env.docker ./.env
+cd ..
+```
+
+4. Edit the docker-compose.yml file to bind mount the repo as a volume:
+
+  ```yaml
+ cachet:
+    volumes:
+      - ./Cachet/:/var/www/html/
+    ...
+  ```
+
+5. Build and run the container:
+
+  ```shell
+  docker-compose up
+  ```
+
+6. Open new terminal and run the following commands after getting container name via `docker ps`:
+
+  ```shell
+  docker exec -i cachetdocker_cachet_1  php artisan key:generate
+  docker exec -i cachetdocker_cachet_1  php artisan app:install
+  ```
+
+
 You can find documentation at [https://docs.cachethq.io](https://docs.cachethq.io).
-
-Here are some useful quick links:
-
-- [Installing Cachet](https://docs.cachethq.io/docs/installing-cachet)
-- [Getting started with Docker](https://docs.cachethq.io/docs/get-started-with-docker)
-- [Installing Cachet on Windows](https://docs.cachethq.io/docs/installing-cachet-on-windows)
-
-### Demo
-
-To test out the demo, you can log in to the [Dashboard](https://dev.cachethq.io/dashboard) with the following credentials:
-
-- **Username:** `test` or `test@example.com`
-- **Password:** `test123`
-
-> The demo resets every 30 minutes.
-
-## Translate Cachet
-
-If you'd like to contribute translations, please check out our [Crowdin project](https://crowdin.com/project/cachet).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Cachet, please send an e-mail to [support@cachethq.io](mailto:support@cachethq.io?Cachet%20Security%20Vulnerability). All security vulnerabilities are reviewed on a case-by-case basis.
-
-## Limited Support Contact
-
-We may be able to resolve **support queries** via email. Please send an email to [support@cachethq.io](mailto:support@cachethq.io?Cachet%20Support). Please check the GitHub [issue tracker](https://github.com/CachetHQ/Cachet/issues) first before emailing.
-
-## Professional Installation Service
-
-A professional **installation service** is offered by Alt Three Services Limited. To find out more, contact [support@alt-three.com](mailto:support@alt-three.com?Cachet%20Installation). **Do not contact this email address for general support.**
-
-## Sponsorship
-
-You can sponsor Cachet at our [Patreon page](https://patreon.com/jbrooksuk).
 
 ## Contributors
 
