@@ -4,17 +4,20 @@
             <div class="col-lg-4 col-md-3 col-sm-12">
                 <h5 class="{{ $component->status_color }}">
                     {!! $component->name !!}
-                    <span
-                        style="
-                            background: #4de800;
-                            color: #008260;
-                            border: #4de800;
-                            border-radius: 10px;
-                            padding: 3px 10px;
-                            font-weight: bold;
-                        ">
-                        @if($component->team != null)  {{ $component->team }}@endif
-                    </span>
+                        @if($component->team != null)
+                        <span
+                            style="
+                                background: #4de800;
+                                color: #008260;
+                                border: #4de800;
+                                border-radius: 10px;
+                                padding: 3px 10px;
+                                font-weight: bold;
+                            ">
+                                {{ $component->team }}
+                        </span>
+                    @endif
+
                 </h5>
             </div>
             <div class="col-lg-8 col-md-9 col-sm-12 radio-items component-inline-update">
